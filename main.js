@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/newapidb");
 const bodyparser = require('body-parser');
 const path = require('path');
+const port = process.env.PORT || 3000;
 
 const adminRoute = require("./route/admin.route");
 const categoryRoute = require('./route/category.route');
@@ -23,6 +24,6 @@ app.use("/api/product",productRoute);
 app.use("/api/user",userRoute);
 app.use("/api/cart",cartRoute);
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
  console.log("----Server Started----");
 });
